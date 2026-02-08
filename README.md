@@ -4,7 +4,7 @@ Welcome to the official landing page for **AI CBT Solutions**, an AI-powered Com
 
 ## 🚀 Live Demo
 You can view the live landing page here: 
-**[https://ai-cbt-solutions-3061d.web.app/](https://ai-cbt-solutions-3061d.web.app/)**
+(https://claude.ai/chat/57ed06a8-c9e7-47bb-bff4-8aaf6c8edc7b)
 
 ---
 
