@@ -1,9 +1,1249 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>AI CBT Landing</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-CBT Solutions - Prepare for Computer-Based Exams</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            background: #0a0e27;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 40%);
+            z-index: 0;
+            animation: bgPulse 8s ease-in-out infinite;
+        }
+
+        @keyframes bgPulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        .animated-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .neural-network {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(102, 126, 234, 0.6);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 0.6;
+            }
+            50% { 
+                transform: scale(1.5);
+                opacity: 1;
+            }
+        }
+
+        .glitch-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.8), transparent);
+            animation: glitchMove 4s linear infinite;
+        }
+
+        @keyframes glitchMove {
+            0% { 
+                transform: translateY(-100vh) translateX(-50%);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { 
+                transform: translateY(100vh) translateX(50%);
+                opacity: 0;
+            }
+        }
+
+        .hologram {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: holoRotate 20s linear infinite;
+        }
+
+        @keyframes holoRotate {
+            0% { 
+                transform: rotate(0deg) scale(1);
+                opacity: 0.3;
+            }
+            50% { 
+                opacity: 0.6;
+            }
+            100% { 
+                transform: rotate(360deg) scale(1);
+                opacity: 0.3;
+            }
+        }
+
+        .brain-core {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(118, 75, 162, 0.4), transparent);
+            border-radius: 50%;
+            animation: brainGlow 4s ease-in-out infinite;
+            box-shadow: 0 0 60px rgba(118, 75, 162, 0.6);
+        }
+
+        @keyframes brainGlow {
+            0%, 100% { 
+                box-shadow: 0 0 60px rgba(118, 75, 162, 0.6);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 100px rgba(118, 75, 162, 1);
+                transform: scale(1.1);
+            }
+        }
+
+        .data-stream {
+            position: absolute;
+            width: 1px;
+            height: 100px;
+            background: linear-gradient(180deg, transparent, rgba(0, 255, 255, 0.8), transparent);
+            animation: dataFlow 3s linear infinite;
+        }
+
+        @keyframes dataFlow {
+            0% { 
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { 
+                transform: translateY(200vh);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4c51bf 0%, #5b21b6 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            font-size: 4.2em;
+            margin-bottom: 18px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        header p:first-of-type {
+            color: #FFD700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        header p:last-of-type {
+            font-weight: 500;
+            font-size: 1.2em;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #fff;
+            color: #4c51bf;
+            padding: 18px 45px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.15em;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(76, 81, 191, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(255, 192, 0, 0.6);
+            background: linear-gradient(135deg, #FFC000 0%, #FFD700 100%);
+            color: #1a202c;
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 25px auto;
+            padding: 40px 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+        }
+
+        section h2 {
+            color: #4c51bf;
+            font-size: 2.4em;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        section h2 .highlight {
+            color: #B8860B;
+        }
+
+        section p {
+            font-size: 1.15em;
+            color: #1a202c;
+            margin-bottom: 15px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        section p strong {
+            font-weight: 700;
+            color: #2d3748;
+        }
+
+        section p .gold-text {
+            color: #B8860B;
+            font-weight: 700;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            font-weight: 500;
+        }
+
+        ul li {
+            padding: 10px 0;
+            padding-left: 35px;
+            position: relative;
+            font-size: 1.1em;
+            color: #2d3748;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4c51bf;
+            font-weight: bold;
+            font-size: 1.4em;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card h3 {
+            color: #4c51bf;
+            font-size: 1.6em;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .stat-card p {
+            color: #2d3748;
+            font-size: 1.05em;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .stat-card .gold-highlight {
+            color: #B8860B;
+            font-weight: 700;
+        }
+
+        .icon-wrapper {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: inline-block;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .icon-wrapper.icon-1 { animation-delay: 0s; }
+        .icon-wrapper.icon-2 { animation-delay: 0.5s; }
+        .icon-wrapper.icon-3 { animation-delay: 1s; }
+        .icon-wrapper.icon-4 { animation-delay: 1.5s; }
+
+        .floating-cta {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            animation: floatBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes floatBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0px); }
+            50% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .floating-cta button {
+            background: linear-gradient(135deg, #4c51bf 0%, #5b21b6 100%);
+            color: white;
+            padding: 16px 35px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05em;
+            cursor: pointer;
+            box-shadow: 0 6px 25px rgba(76, 81, 191, 0.6);
+            transition: all 0.3s;
+        }
+
+        .floating-cta button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 35px rgba(255, 192, 0, 0.8);
+            background: linear-gradient(135deg, #FFC000 0%, #FFD700 100%);
+        }
+
+        /* Sticky Header */
+        .sticky-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(26, 32, 44, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 9998;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            animation: slideDown 0.5s ease-out;
+        }
+
+        .sticky-header.hidden {
+            transform: translateY(-100%);
+        }
+
+        .sticky-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        .sticky-logo .ai-icon {
+            font-size: 1.8em;
+            animation: rotate360 4s linear infinite;
+        }
+
+        @keyframes rotate360 {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .sticky-cta {
+            background: linear-gradient(135deg, #4c51bf 0%, #5b21b6 100%);
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95em;
+        }
+
+        .sticky-cta:hover {
+            background: linear-gradient(135deg, #FFC000 0%, #FFD700 100%);
+            color: #1a202c;
+            transform: scale(1.05);
+        }
+
+        /* Sticky Footer Button */
+        .sticky-footer-btn {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            z-index: 9999;
+            display: block;
+        }
+
+        .sticky-footer-btn.show {
+            animation: slideInRight 0.5s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(200px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .sticky-footer-btn button {
+            background: linear-gradient(135deg, #4c51bf 0%, #5b21b6 100%);
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 6px 25px rgba(76, 81, 191, 0.6);
+            transition: all 0.4s ease;
+            font-size: 1.05em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sticky-footer-btn button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .sticky-footer-btn button:hover::before {
+            left: 100%;
+        }
+
+        .sticky-footer-btn button:hover {
+            background: linear-gradient(135deg, #FFC000 0%, #FFD700 100%);
+            color: #1a202c;
+            transform: scale(1.1) translateY(-3px);
+            box-shadow: 0 8px 35px rgba(255, 192, 0, 0.8);
+        }
+
+        .sticky-footer-btn button .pulse-dot {
+            width: 10px;
+            height: 10px;
+            background: #FFD700;
+            border-radius: 50%;
+            animation: pulse-ring 1.5s ease-out infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+            }
+        }
+
+        /* Floating Widget - Mobile specific */
+        .floating-cta {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .sticky-header {
+                padding: 10px 15px;
+            }
+
+            .sticky-logo span {
+                display: none;
+            }
+
+            .sticky-cta {
+                display: none;
+            }
+
+            .sticky-footer-btn {
+                right: 10px;
+                bottom: 10px;
+            }
+
+            .sticky-footer-btn button {
+                padding: 12px 20px;
+                font-size: 0.9em;
+            }
+        }
+
+        .countdown-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        .countdown-section h2 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .countdown-box {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-top: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .countdown-box p {
+            font-size: 2em;
+            font-weight: 700;
+            color: white;
+        }
+
+        .testimonials {
+            background: #f8f9fa;
+        }
+
+        .testimonial {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 15px auto;
+            max-width: 700px;
+            border-left: 4px solid #667eea;
+            font-style: italic;
+            color: #555;
+            font-size: 1.1em;
+            font-weight: 500;
+            line-height: 1.5;
+            backdrop-filter: blur(10px);
+        }
+
+        .testimonial-author {
+            margin-top: 12px;
+            font-weight: 700;
+            color: #4c51bf;
+            font-style: normal;
+        }
+
+        footer {
+            background: #1a202c;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer h3 {
+            font-weight: 700;
+            font-size: 1.5em;
+        }
+
+        footer a {
+            color: #818cf8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer p {
+            margin: 12px 0;
+            font-weight: 500;
+        }
+
+        .disclaimer {
+            font-size: 0.95em;
+            opacity: 0.8;
+            margin-top: 25px;
+            font-style: italic;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            background: #000;
+            z-index: 10;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            z-index: 10;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 2em;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: #818cf8;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: rgba(255, 255, 255, 0.98);
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            animation: slideDown 0.4s;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            line-height: 1;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close:hover {
+            color: #4c51bf;
+        }
+
+        .modal h2 {
+            color: #4c51bf;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+
+        .modal p {
+            margin-bottom: 25px;
+            color: #2d3748;
+            font-size: 1.05em;
+            font-weight: 500;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border 0.3s;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #4c51bf;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #4c51bf 0%, #5b21b6 100%);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(76, 81, 191, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 81, 191, 0.6);
+        }
+
+        .telegram-modal .modal-content {
+            text-align: center;
+        }
+
+        .telegram-btn {
+            display: inline-block;
+            background: #0088cc;
+            color: white;
+            padding: 18px 45px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.15em;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,136,204,0.4);
+            margin-top: 20px;
+        }
+
+        .telegram-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0,136,204,0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            header p {
+                font-size: 1.2em;
+            }
+
+            header p:first-of-type {
+                font-size: 1.3em;
+            }
+
+            section h2 {
+                font-size: 1.9em;
+            }
+
+            section p {
+                font-size: 1.05em;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 30px 20px;
+            }
+
+            .social-links a {
+                font-size: 1.7em;
+            }
+
+            .sticky-header {
+                padding: 10px 15px;
+            }
+
+            .sticky-logo span {
+                display: none;
+            }
+
+            .sticky-cta {
+                display: none;
+            }
+
+            .sticky-footer-btn {
+                right: 15px;
+                bottom: 15px;
+            }
+
+            .sticky-footer-btn button {
+                padding: 14px 24px;
+                font-size: 0.95em;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            header h1 {
+                font-size: 2.6em;
+            }
+
+            header p {
+                font-size: 1.25em;
+            }
+
+            section h2 {
+                font-size: 2.1em;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to AI CBT Landing</h1>
-    <p>This is the home page of the AI CBT project.</p>
+    <!-- Sticky Header -->
+    <div class="sticky-header" id="stickyHeader">
+        <div class="sticky-logo">
+            <span class="ai-icon">🤖</span>
+            <span>AI-CBT Solutions</span>
+        </div>
+        <button class="sticky-cta" onclick="openRegistrationModal()">🚀 Start Preparation Early</button>
+    </div>
+
+    <!-- Animated Cyberpunk Background -->
+    <div class="animated-background">
+        <div class="neural-network">
+            <!-- Neural nodes -->
+            <div class="node" style="top: 10%; left: 15%; animation-delay: 0s;"></div>
+            <div class="node" style="top: 25%; left: 75%; animation-delay: 0.5s;"></div>
+            <div class="node" style="top: 45%; left: 30%; animation-delay: 1s;"></div>
+            <div class="node" style="top: 60%; left: 85%; animation-delay: 1.5s;"></div>
+            <div class="node" style="top: 80%; left: 20%; animation-delay: 2s;"></div>
+            <div class="node" style="top: 35%; left: 60%; animation-delay: 2.5s;"></div>
+            <div class="node" style="top: 70%; left: 50%; animation-delay: 0.8s;"></div>
+            <div class="node" style="top: 15%; left: 90%; animation-delay: 1.2s;"></div>
+            
+            <!-- Brain cores -->
+            <div class="brain-core" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+            <div class="brain-core" style="top: 60%; left: 70%; animation-delay: 1s;"></div>
+            <div class="brain-core" style="top: 40%; left: 80%; animation-delay: 2s;"></div>
+            
+            <!-- Holograms -->
+            <div class="hologram" style="top: 30%; left: 40%; animation-delay: 0s;"></div>
+            <div class="hologram" style="top: 70%; left: 15%; animation-delay: 3s;"></div>
+            <div class="hologram" style="top: 50%; left: 75%; animation-delay: 6s;"></div>
+            
+            <!-- Glitch lines -->
+            <div class="glitch-line" style="top: 20%; animation-delay: 0s;"></div>
+            <div class="glitch-line" style="top: 50%; animation-delay: 2s;"></div>
+            <div class="glitch-line" style="top: 80%; animation-delay: 4s;"></div>
+            
+            <!-- Data streams -->
+            <div class="data-stream" style="left: 20%; animation-delay: 0s;"></div>
+            <div class="data-stream" style="left: 40%; animation-delay: 1s;"></div>
+            <div class="data-stream" style="left: 60%; animation-delay: 2s;"></div>
+            <div class="data-stream" style="left: 80%; animation-delay: 3s;"></div>
+            <div class="data-stream" style="left: 10%; animation-delay: 1.5s;"></div>
+            <div class="data-stream" style="left: 70%; animation-delay: 2.5s;"></div>
+            <div class="data-stream" style="left: 90%; animation-delay: 0.5s;"></div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <h1>AI-CBT SOLUTIONS</h1>
+            <p>Prepare for the Future of Computer-Based Exams</p>
+            <p>AI-monitored Computer-Based Tests (CBT) are becoming the new standard in recruitment and education. AI-CBT Solutions helps job seekers, students, and beginners build the <span class="gold-text">digital readiness</span> and confidence needed to succeed in modern CBT environments.</p>
+            <button class="cta-button" onclick="openRegistrationModal()"><span>👉 Join the AI-CBT Solutions Community</span></button>
+        </div>
+    </header>
+
+    <section style="background: #f8f9fa;">
+        <div class="container">
+            <h2>Watch: Understanding AI-CBT</h2>
+            <p style="text-align: center; margin-bottom: 30px;"><strong>See how AI-CBT Solutions can help you prepare for modern computer-based examinations</strong></p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/lMv8GTA-n5k?si=7FiCUja8fButKyoJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>What Is <span class="highlight">AI-CBT?</span></h2>
+            <p><strong>AI-CBT refers to computer-based examinations that use digital systems to monitor compliance with exam rules, such as camera visibility, posture, system activity, and environment.</strong></p>
+            <p><strong>These exams do not only test knowledge — they also assess <span class="gold-text">digital readiness</span>, focus, and system familiarity.</strong></p>
+            <p><strong>AI-CBT Solutions exists to help participants understand how these systems work and prepare calmly, confidently, and responsibly.</strong></p>
+        </div>
+    </section>
+
+    <section style="background: #f8f9fa;">
+        <div class="container">
+            <h2>Who Is This For?</h2>
+            <p style="text-align: center; margin-bottom: 30px;"><strong>AI-CBT Solutions is designed for:</strong></p>
+            <ul>
+                <li>Job seekers preparing for recruitment and aptitude tests</li>
+                <li>Students writing CBT, entrance, or online examinations</li>
+                <li>Beginners who struggle with computer usage</li>
+                <li>Individuals who feel anxious during online exams</li>
+                <li>Anyone who wants to understand modern exam systems before facing them</li>
+            </ul>
+            <p style="text-align: center; margin-top: 30px; font-weight: 700; color: #667eea; font-size: 1.25em;">If you can use a mobile phone, you can build AI-CBT readiness.</p>
+        </div>
+    </section>
+
+    <section style="background: #f8f9fa;">
+        <div class="container">
+            <h2>Why Many <span class="highlight">Struggle</span> with CBT Exams</h2>
+            <p style="text-align: center; margin-bottom: 30px;"><strong>Many capable candidates underperform not because they lack knowledge, but because they are <span class="gold-text">unfamiliar with the exam environment.</span></strong></p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="icon-wrapper icon-1">😰</div>
+                    <h3>System Anxiety</h3>
+                    <p>Fear of computer-based systems and <span class="gold-highlight">unfamiliar interfaces</span></p>
+                </div>
+                <div class="stat-card">
+                    <div class="icon-wrapper icon-2">⏱️</div>
+                    <h3>Time Pressure</h3>
+                    <p>Poor time management under <span class="gold-highlight">digital timers</span></p>
+                </div>
+                <div class="stat-card">
+                    <div class="icon-wrapper icon-3">📹</div>
+                    <h3>Monitoring Stress</h3>
+                    <p>Anxiety during <span class="gold-highlight">AI-monitored</span> examinations</p>
+                </div>
+                <div class="stat-card">
+                    <div class="icon-wrapper icon-4">💻</div>
+                    <h3>Limited Exposure</h3>
+                    <p>Lack of understanding of <span class="gold-highlight">AI-based exam rules</span></p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 40px; font-weight: 700; color: #B8860B; font-size: 1.3em;">AI-CBT Solutions focuses on preparation, not pressure.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>How AI-CBT Solutions <span class="highlight">Helps You Succeed</span></h2>
+            <p style="text-align: center; margin-bottom: 30px;"><strong>Our approach is simple, practical, and learner-friendly.</strong></p>
+            <ul style="max-width: 700px;">
+                <li>Understanding CBT and <span class="gold-text">AI-monitored exam environments</span></li>
+                <li>Building <span class="gold-text">digital confidence</span> and system navigation skills</li>
+                <li>Developing exam discipline and a calm mindset</li>
+                <li>Gaining practical exposure through guided simulations</li>
+                <li>Receiving step-by-step readiness training</li>
+            </ul>
+            <p style="text-align: center; margin-top: 30px; font-weight: 700; color: #B8860B; font-size: 1.2em;">We believe no one should be disadvantaged by a system they were never taught to understand.</p>
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="cta-button" onclick="openRegistrationModal()"><span>👉 Join Our Community Today</span></button>
+            </div>
+        </div>
+    </section>
+
+    <div class="countdown-section">
+        <div class="container">
+            <h2>Physical Training Launch</h2>
+            <p style="font-size: 1.3em; margin-bottom: 20px; font-weight: 600;">AI-CBT Solutions will introduce physical and online training sessions in 2026.</p>
+            <div class="countdown-box">
+                <p>⏳ Coming Soon</p>
+            </div>
+            <p style="margin-top: 25px; font-size: 1.1em; font-weight: 500;">Join our community now to receive updates when training sessions begin.</p>
+        </div>
+    </div>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Participants Are Saying</h2>
+            <div class="testimonial">
+                <p>"I wish I had known this before my last CBT exam."</p>
+                <p class="testimonial-author">— Job Seeker</p>
+            </div>
+            <div class="testimonial">
+                <p>"Understanding the system changes everything."</p>
+                <p class="testimonial-author">— Student</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>About <span class="highlight">AI-CBT Solutions</span></h2>
+            <p style="text-align: center;"><strong>AI-CBT Solutions is an awareness and readiness initiative focused on preparing candidates for the evolving <span class="gold-text">digital examination landscape.</span></strong></p>
+            <p style="text-align: center; font-weight: 700; color: #B8860B; font-size: 1.3em; margin-top: 30px;">Our mission: Help people understand the system before they face it.</p>
+            <p style="text-align: center; margin-top: 20px; font-weight: 600;">We provide education, guidance, and practical readiness — not shortcuts or guarantees.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h3 style="margin-bottom: 20px;">AI-CBT SOLUTIONS</h3>
+            <p>Email: <a href="mailto:olydovespytech@gmail.com">olydovespytech@gmail.com</a></p>
+            
+            <div class="social-links">
+                <a href="https://youtube.com/@Speaznetwork" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://tiktok.com/@speaznet" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://x.com/SpeazNet" target="_blank" title="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://whatsapp.com/channel/0029Va55pno4SpkBA0mVmd0E" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            
+            <p class="disclaimer">This initiative provides education, awareness, and training support only. AI-CBT Solutions does not guarantee exam outcomes or results.</p>
+            <p style="margin-top: 30px; font-weight: 600;">© 2026 AI-CBT Solutions. All rights reserved.</p>
+            <p style="font-size: 0.95em; opacity: 0.8;">Powered by Speaz Network</p>
+        </div>
+    </footer>
+
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRegistrationModal()">&times;</span>
+            <h2>Join AI-CBT Solutions</h2>
+            <p>Please fill in your details to join our community and stay updated on training sessions.</p>
+            <form id="registrationForm" onsubmit="submitRegistration(event)">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <button type="submit" class="submit-btn">Submit & Join Community</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Telegram Modal -->
+    <div id="telegramModal" class="modal telegram-modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeTelegramModal()">&times;</span>
+            <h2>🎉 Registration Successful!</h2>
+            <p>Thank you for joining AI-CBT Solutions! Click the button below to join our Telegram community and stay connected.</p>
+            <a href="https://t.me/+V5pFLxLl6Us1Y2Fk" target="_blank" class="telegram-btn">
+                <i class="fab fa-telegram"></i> Join Telegram Community
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function openRegistrationModal() {
+            document.getElementById('registrationModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeRegistrationModal() {
+            document.getElementById('registrationModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function openTelegramModal() {
+            document.getElementById('telegramModal').style.display = 'block';
+        }
+
+        function closeTelegramModal() {
+            document.getElementById('telegramModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        async function submitRegistration(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+
+            // Google Sheets Web App URL
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzgmO6IRT6qVWvyQP7yf5uyzyAvxRTo1VUb8Xiqxz07MVCKSTW37MfMerXCP3pFMMeR/exec';
+            
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('phone', phone);
+            formData.append('email', email);
+            formData.append('timestamp', new Date().toISOString());
+
+            try {
+                // Submit to Google Sheets
+                await fetch(scriptURL, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'no-cors'
+                });
+
+                // Close registration modal
+                closeRegistrationModal();
+                
+                // Reset form
+                document.getElementById('registrationForm').reset();
+                
+                // Open Telegram modal
+                openTelegramModal();
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Registration successful! Click OK to join our Telegram community.');
+                closeRegistrationModal();
+                openTelegramModal();
+            }
+        }
+
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            const regModal = document.getElementById('registrationModal');
+            const telModal = document.getElementById('telegramModal');
+            if (event.target == regModal) {
+                closeRegistrationModal();
+            }
+            if (event.target == telModal) {
+                closeTelegramModal();
+            }
+        }
+
+        // Sticky Header and Footer Button Functionality
+        let lastScrollTop = 0;
+        const stickyHeader = document.getElementById('stickyHeader');
+        const stickyFooterBtn = document.getElementById('stickyFooterBtn');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Show/hide sticky header based on scroll direction
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down
+                stickyHeader.classList.add('hidden');
+            } else {
+                // Scrolling up
+                stickyHeader.classList.remove('hidden');
+            }
+            lastScrollTop = scrollTop;
+
+            // Floating widget is always visible - no need for show/hide logic
+        });
+    </script>
 </body>
 </html>
